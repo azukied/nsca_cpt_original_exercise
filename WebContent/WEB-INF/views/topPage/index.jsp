@@ -9,6 +9,7 @@
             <c:forEach var="chapterNumber" items="${chapterNumbers}">
                <span>第<c:out value="${chapterNumber}" />章</span>
             </c:forEach>
+            &nbsp;
             <c:forEach var="chapterTitle" items="${chapterTitles}">
                <span><c:out value="${chapterTitle}" /></span>
             </c:forEach>

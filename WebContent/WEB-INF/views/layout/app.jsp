@@ -14,27 +14,24 @@
         <div>
             <h1>NSCA-CPT 試験対策</h1>
         </div>
+
         <div>
-            <p>トップページ</p>
-        </div>
-        <div>
-            <p>ユーザー登録</p>
-        </div>
-        <div>
-            <p>ログイン</p>
-        </div>
-        <div>
-            <p>ログアウト</p>
+            <ul>
+                <li>トップページ</li>
+                <li>ユーザー登録</li>
+                <li>ログイン</li>
+                <li>ログアウト</li>
+            </ul>
         </div>
     </header>
 
     <body>
-        <div>
+        <main>
             ${param.content}
-        </div>
+        </main>
     </body>
 
     <footer>
-        <p>©2020 Kenji Murata</p>
+        <p>(c) 2020 Kenji Murata</p>
     </footer>
 </html>
