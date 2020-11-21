@@ -3,9 +3,9 @@
 
 <c:if test="${errors != null}">
     <div>
-        入力内容にエラーがあります。
+        <p>入力内容にエラーがあります。</p>
         <c:forEach var="error" items="${errors}">
-            ・<c:out value="${error}" /><br>
+            <p>・<c:out value="${error}" /></p>
         </c:forEach>
     </div>
 </c:if>

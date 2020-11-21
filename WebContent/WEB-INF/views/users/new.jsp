@@ -4,7 +4,9 @@
 <c:import url="../layout/app.jsp">
     <c:param name="content">
         <h1>新規ユーザー登録</h1>
-        
+
+        <c:import url="error.jsp" />
+
         <form method="POST" action="<c:url value='/users/create' />">
             <p>
                 <label for="nickname">ニックネーム</label>
@@ -12,7 +14,7 @@
             </p>
 
             <input type="hidden" name="admin_flag" value="0" />
-            
+
             <c:import url="_form.jsp" />
         </form>
     </c:param>
