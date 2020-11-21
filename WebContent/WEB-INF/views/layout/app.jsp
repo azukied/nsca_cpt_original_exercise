@@ -17,10 +17,18 @@
 
         <div>
             <ul>
-                <li>トップページ</li>
-                <li>ユーザー登録</li>
-                <li>ログイン</li>
-                <li>ログアウト</li>
+                <li>
+                    <a href="<c:url value='/index.html' />">トップページ</a>
+                </li>
+                <li>
+                    <a href="<c:url value='/users/new' />">ユーザー登録</a>
+                </li>
+                <li>
+                    <a href="">ログイン</a>
+                </li>
+                <li>
+                    <a href="">ログアウト</a>
+                </li>
             </ul>
         </div>
     </header>
