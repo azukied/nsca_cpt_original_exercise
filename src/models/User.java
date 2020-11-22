@@ -34,9 +34,10 @@ public class User {
 
     @Column(name = "password", length = 64, nullable = false)
     private String password;
-    
+
     @Column(name = "admin_flag", nullable = false)
     private Integer admin_flag;
+
 
     public Integer getId() {
         return id;

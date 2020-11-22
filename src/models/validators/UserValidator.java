@@ -69,7 +69,7 @@ public class UserValidator {
         if (password_check_flag && (password == null || password.equals(""))) {
             return "パスワードを入力してください。";
         }
-        else if (password_check_flag && password != conf_pass) {
+        else if (password_check_flag && !password.equals(conf_pass)) {
             return "パスワードが一致しません。";
         }
 

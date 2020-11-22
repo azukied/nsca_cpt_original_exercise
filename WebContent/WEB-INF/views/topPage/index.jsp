@@ -5,6 +5,9 @@
     <c:param name="content">
         <h1>NSCA-CPT オリジナル練習問題</h1>
 
+        <h2>
+            PART○　○○
+        </h2>
         <p>
             <c:forEach var="chapterNumber" items="${chapterNumbers}">
                <span>第<c:out value="${chapterNumber}" />章</span>

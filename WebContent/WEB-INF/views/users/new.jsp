@@ -8,14 +8,11 @@
         <c:import url="error.jsp" />
 
         <form method="POST" action="<c:url value='/users/create' />">
-            <p>
-                <label for="nickname">ニックネーム</label>
-                <input type="text" name="nickname" value="${user.nickname}" id="nickname" />
-            </p>
-
-            <input type="hidden" name="admin_flag" value="0" />
-
             <c:import url="_form.jsp" />
+            
+            <input type="hidden" name="admin_flag" value="0" />
+            
+            <button type="submit">登録</button>
         </form>
     </c:param>
 </c:import>

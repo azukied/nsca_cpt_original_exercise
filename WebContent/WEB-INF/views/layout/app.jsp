@@ -21,6 +21,9 @@
                     <a href="<c:url value='/index.html' />">トップページ</a>
                 </li>
                 <li>
+                    <a href="<c:url value='/users/index' />">マイページ</a>
+                </li>
+                <li>
                     <a href="<c:url value='/users/new' />">ユーザー登録</a>
                 </li>
                 <li>

@@ -51,7 +51,12 @@ public class UsersCreateServlet extends HttpServlet {
             );
             u.setAdmin_flag(Integer.parseInt(request.getParameter("admin_flag")));
 
-            List<String> errors = UserValidator.validate(u, request.getParameter("conf_pass"), true, true);
+            String conf_pass = EncryptUtil.getPasswordEncrypt(
+                                    request.getParameter("conf_pass"),
+                                    (String)this.getServletContext().getAttribute("pepper")
+                                );
+
+            List<String> errors = UserValidator.validate(u, conf_pass, true, true);
             if (errors.size() > 0) {
                 em.close();
 
@@ -68,9 +73,8 @@ public class UsersCreateServlet extends HttpServlet {
                 request.getSession().setAttribute("flush", "登録が完了しました。");
                 em.close();
 
-                response.sendRedirect(request.getContentType() + "/index.html");
+                response.sendRedirect(request.getContextPath() + "/index.html");
             }
-
         }
     }
 
