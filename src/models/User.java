@@ -12,10 +12,16 @@ import javax.persistence.Table;
 @Table(name = "users")
 
 @NamedQueries({
+    // 指定されたユーザIDがすでにDBに存在しているかを調べる。
     @NamedQuery(
             name = "checkRegisteredUserId",
             query = "SELECT COUNT(u) FROM User AS u WHERE u.user_id = :user_id"
             ),
+    // ログイン時にユーザIDとパスワードが正しいかをチェックする。
+    @NamedQuery(
+            name = "checkLoginUserIdAndPassword",
+            query = "SELECT u FROM User AS u WHERE u.user_id = :user_id AND u.password = :password"
+            )
 })
 
 @Entity

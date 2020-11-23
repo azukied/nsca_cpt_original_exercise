@@ -10,7 +10,7 @@ import utils.DBUtil;
 
 public class UserValidator {
 
-    // バリデーションを実行する
+    // バリデーションを実行
     public static List<String> validate(User u, String conf_pass, Boolean user_id_duplicate_check_flag, Boolean password_check_flag) {
         List<String> errors = new ArrayList<String>();
 
@@ -69,6 +69,7 @@ public class UserValidator {
         if (password_check_flag && (password == null || password.equals(""))) {
             return "パスワードを入力してください。";
         }
+        // パスワードと確認用パスワードの一致を確認
         else if (password_check_flag && !password.equals(conf_pass)) {
             return "パスワードが一致しません。";
         }

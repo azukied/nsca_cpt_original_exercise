@@ -12,13 +12,13 @@
 </p>
 
 <p>
-    <label for="password">パスワード</label>
-    <input type="password" name="password" id="password" />
+    <label for="plain_pass">パスワード</label>
+    <input type="password" name="plain_pass" id="plain_pass" />
 </p>
 
 <p>
-    <label for="conf_pass">確認用パスワード</label>
-    <input type="password" name="conf_pass" id="conf_pass" />
+    <label for="plain_conf_pass">確認用パスワード</label>
+    <input type="password" name="plain_conf_pass" id="plain_conf_pass" />
 </p>
 
 <input type="hidden" name="_token" value="${_token}" />

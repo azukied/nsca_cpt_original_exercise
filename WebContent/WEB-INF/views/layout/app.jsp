@@ -26,12 +26,18 @@
                 <li>
                     <a href="<c:url value='/users/new' />">ユーザー登録</a>
                 </li>
-                <li>
-                    <a href="">ログイン</a>
-                </li>
-                <li>
-                    <a href="">ログアウト</a>
-                </li>
+                <c:choose>
+                    <c:when test="${u == null}">
+                        <li>
+                            <a href="<c:url value='/login' />">ログイン</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li>
+                            <a href="<c:url value='/logout' />">ログアウト</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </div>
     </header>

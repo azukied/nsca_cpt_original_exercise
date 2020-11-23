@@ -4,9 +4,7 @@
 <c:import url="../layout/app.jsp">
     <c:param name="content">
         <c:if test="${flush != null}">
-            <div>
-                <c:out value="${flush}"></c:out>
-            </div>
+            <p><c:out value="${flush}" /></p>
         </c:if>
 
         <h1>○○さんのマイページ</h1>

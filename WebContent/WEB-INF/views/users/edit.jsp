@@ -6,7 +6,7 @@
 
         <c:choose>
             <c:when test="${user != null}">
-                <h1>ユーザー情報編集ページ</h1>
+                <h1>ユーザ情報編集ページ</h1>
 
                 <p>（パスワードは変更する場合のみ入力してください。）</p>
 
@@ -16,7 +16,7 @@
                     <button type="submit">変更</button>
                 </form>
 
-                <p><a href="#" onclick="confirmDestroy();">このユーザー情報を削除する</a></p>
+                <p><a href="#" onclick="confirmDestroy();">このユーザ情報を削除する</a></p>
 
                 <form method="POST" action="<c:url value='/users/destroy' />">
                     <input type="hidden" name="_token" value="${_token}" />
@@ -30,7 +30,7 @@
                     }
                 </script>
             </c:when>
-            
+
             <c:otherwise>
                 <p>お探しのデータは見つかりませんでした。</p>
             </c:otherwise>

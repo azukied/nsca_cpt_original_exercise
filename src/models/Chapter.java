@@ -3,16 +3,21 @@ package models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Table(name = "chapters")
 
-//@NamedQueries({
-//    @NamedQuery(
-//            name = "",
-//            query = ""
-//            ),
-//})
+@NamedQueries({
+    // 全ての章情報を取得
+    @NamedQuery(
+            name = "getAllChapters",
+            query = "SELECT c FROM Chapter AS c ORDER BY c.id ASC"
+            )
+})
 
 @Entity
 public class Chapter {
@@ -20,6 +25,10 @@ public class Chapter {
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "part_id", nullable = false)
+    private Part part;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -41,5 +50,12 @@ public class Chapter {
         this.title = title;
     }
 
+    public Part getPart() {
+        return part;
+    }
+
+    public void setPart(Part part) {
+        this.part = part;
+    }
 
 }

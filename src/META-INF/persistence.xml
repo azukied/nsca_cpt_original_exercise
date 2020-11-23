@@ -5,6 +5,7 @@
 		<class>models.User</class>
 		<class>models.Part</class>
 		<class>models.Chapter</class>
+		<class>models.Exercise</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/nsca_cpt_original_exercise?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"/>
