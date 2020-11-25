@@ -6,9 +6,11 @@
 
         <c:choose>
             <c:when test="${user != null}">
-                <h1>ユーザ情報編集ページ</h1>
+                <h1><c:out value="${user.nickname}" />さんのユーザ情報編集ページ</h1>
 
                 <p>（パスワードは変更する場合のみ入力してください。）</p>
+
+                <c:import url="error.jsp" />
 
                 <form method="POST" action="<c:url value='/users/update' />">
                     <c:import url="_form.jsp" />

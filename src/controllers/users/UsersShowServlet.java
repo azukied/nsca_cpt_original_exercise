@@ -16,14 +16,14 @@ import utils.DBUtil;
 /**
  * Servlet implementation class UsersIndexServlet
  */
-@WebServlet("/users/index")
-public class UsersIndexServlet extends HttpServlet {
+@WebServlet("/users/show")
+public class UsersShowServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UsersIndexServlet() {
+    public UsersShowServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,20 +33,24 @@ public class UsersIndexServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // セッションスコープにフラッシュメッセージが登録されていれば、それをリクエストスコープに登録し直す。
-        if(request.getSession().getAttribute("flush") != null) {
+        if (request.getSession().getAttribute("flush") != null) {
             request.setAttribute("flush", request.getSession().getAttribute("flush"));
             request.getSession().removeAttribute("flush");
         }
 
         EntityManager em = DBUtil.createEntityManager();
 
-        User u = em.find(User.class, Integer.parseInt(request.getParameter("id")));
+        // セッションスコープからログインユーザのデータを取得して、該当のユーザデータ1件のみをDBから取得
+        User u = em.createNamedQuery("getLoginUser", User.class)
+                    .setParameter("login_user", (User)request.getSession().getAttribute("login_user"))
+                    .getSingleResult();
 
         em.close();
 
+        // ユーザデータをリクエストスコープにセットしてshow.jspを呼び出す。
         request.setAttribute("user", u);
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/users/index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/users/show.jsp");
         rd.forward(request, response);
     }
 

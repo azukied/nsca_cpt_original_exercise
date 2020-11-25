@@ -17,7 +17,7 @@
         <form method="POST" action="<c:url value='/login' />">
             <p>
                 <label for="user_id">ID</label>
-                <input type="text" name="user_id" value="${user.user_id}" id="user_id" />
+                <input type="text" name="user_id" value="${user_id}" id="user_id" />
             </p>
 
             <p>

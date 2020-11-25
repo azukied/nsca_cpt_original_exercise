@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "chapters")
 
 @NamedQueries({
-    // 全ての章情報を取得
+    // 全ての章データを取得
     @NamedQuery(
             name = "getAllChapters",
             query = "SELECT c FROM Chapter AS c ORDER BY c.id ASC"

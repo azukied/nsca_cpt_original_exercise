@@ -42,7 +42,7 @@ public class UsersCreateServlet extends HttpServlet {
 
             User u = new User();
 
-            // new.jspのフォームから受け取ったデータをセットする。
+            // new.jspのフォームから受け取ったデータをセット
             u.setNickname(request.getParameter("nickname"));
             u.setUser_id(request.getParameter("user_id"));
             u.setPassword(
@@ -73,13 +73,14 @@ public class UsersCreateServlet extends HttpServlet {
 
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/users/new.jsp");
                 rd.forward(request, response);
-            // エラーがなければデータを保存してトップページへ移動する。
+            // エラーがなければデータを保存してトップページへ移動
             } else {
                 em.getTransaction().begin();
                 em.persist(u);    // DBに保存
                 em.getTransaction().commit();    // データの新規登録を確定
-                request.getSession().setAttribute("flush", "登録が完了しました。");
                 em.close();
+
+                request.getSession().setAttribute("flush", "登録が完了しました。");
 
                 response.sendRedirect(request.getContextPath() + "/index.html");
             }

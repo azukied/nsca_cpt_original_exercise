@@ -12,6 +12,16 @@ import javax.persistence.Table;
 @Table(name = "users")
 
 @NamedQueries({
+    // 全てのユーザデータを取得
+    @NamedQuery(
+            name = "getAllUsers",
+            query = "SELECT u FROM User AS u ORDER BY u.id ASC"
+            ),
+    // ログインしているユーザと同じユーザデータを取得
+    @NamedQuery(
+            name = "getLoginUser",
+            query = "SELECT u FROM User AS u WHERE u = :login_user"
+            ),
     // 指定されたユーザIDがすでにDBに存在しているかを調べる。
     @NamedQuery(
             name = "checkRegisteredUserId",

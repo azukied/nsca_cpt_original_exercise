@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "parts")
 
 @NamedQueries({
-    // 全ての部情報を取得
+    // 全ての部データを取得
     @NamedQuery(
             name = "getAllParts",
             query = "SELECT p FROM Part AS p ORDER BY p.id ASC"
