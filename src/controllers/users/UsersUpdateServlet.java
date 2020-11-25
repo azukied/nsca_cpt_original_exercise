@@ -42,7 +42,7 @@ public class UsersUpdateServlet extends HttpServlet {
 
             // セッションスコープからユーザのID番号（PK）を取得して、該当のIDのユーザデータ1件のみをDBから取得
             User u = em.find(User.class, (Integer)(request.getSession().getAttribute("useridpk")));
-            
+
             // 現在と異なるユーザIDが入力されていたら、すでに登録されている他ユーザIDとの重複チェックを行う指定をする。
             Boolean user_id_duplicate_check_flag = true;
             if (u.getUser_id().equals(request.getParameter("user_id"))) {
@@ -97,6 +97,9 @@ public class UsersUpdateServlet extends HttpServlet {
                 em.close();
 
                 request.getSession().setAttribute("flush", "変更が完了しました。");
+
+                // セッションスコープ上の不要になったデータを削除
+                request.getSession().removeAttribute("useridpk");
 
                 response.sendRedirect(request.getContextPath() + "/users/show");
             }
