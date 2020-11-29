@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -11,13 +12,18 @@ import javax.persistence.Table;
 
 @Table(name = "exercises")
 
-//@NamedQueries({
-//    //
-//    @NamedQuery(
-//            name = "",
-//            query = ""
-//            )
-//})
+@NamedQueries({
+    // 該当の章の練習問題を取得
+    @NamedQuery(
+            name = "getExercisesFromEachChapters",
+            query = "SELECT e FROM Exercise AS e WHERE e.chapter.id = :chapter_id ORDER BY e.id ASC"
+            ),
+    // 該当の章の練習問題の登録件数を取得
+    @NamedQuery(
+            name = "getExercisesCountFromEachChapters",
+            query = "SELECT COUNT(e) FROM Exercise AS e WHERE e.chapter.id = :chapter_id"
+            )
+})
 
 @Entity
 public class Exercise {
@@ -30,22 +36,31 @@ public class Exercise {
     @JoinColumn(name = "chapter_id", nullable = false)
     private Chapter chapter;
 
+    @Lob
     @Column(name = "question", nullable = false)
     private String question;
 
-    @Column(name = "choice_a")
+    @Lob
+    @Column(name = "choice_a", nullable = false)
     private String choice_a;
 
-    @Column(name = "choice_b")
+    @Lob
+    @Column(name = "choice_b", nullable = false)
     private String choice_b;
 
-    @Column(name = "choice_c")
+    @Lob
+    @Column(name = "choice_c", nullable = false)
     private String choice_c;
 
-    @Column(name = "choice_d")
+    @Lob
+    @Column(name = "choice_d", nullable = false)
     private String choice_d;
 
-    @Column(name = "explanation")
+    @Column(name = "correct_answer", nullable = false)
+    private String correct_answer;
+
+    @Lob
+    @Column(name = "explanation", nullable = false)
     private String explanation;
 
 
@@ -103,6 +118,14 @@ public class Exercise {
 
     public void setChoice_d(String choice_d) {
         this.choice_d = choice_d;
+    }
+
+    public String getCorrect_answer() {
+        return correct_answer;
+    }
+
+    public void setCorrect_answer(String correct_answer) {
+        this.correct_answer = correct_answer;
     }
 
     public String getExplanation() {

@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("_token", request.getSession().getId());
+        request.setAttribute("_token", request.getSession().getId());    // CSRF対策
         request.setAttribute("hasError", false);
 
         // セッションスコープにフラッシュメッセージが登録されていれば、それをリクエストスコープに登録し直す。
@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 認証結果を格納する変数
-        Boolean check_result = false;    // DBに保存されているユーザ情報との照合が取れれば、あとでtrueが代入される。
+        Boolean check_result = false;    // DBに保存されているユーザデータとの照合が取れれば、あとでtrueが代入される。
 
         String user_id = request.getParameter("user_id");
         String plain_pass = request.getParameter("plain_pass");
@@ -80,13 +80,13 @@ public class LoginServlet extends HttpServlet {
             em.close();
 
             if (u != null) {
-                check_result = true;    // DBに保存されているユーザ情報との照合が取れれば、trueを代入
+                check_result = true;    // DBに保存されているユーザデータとの照合が取れれば、trueを代入
             }
         }
 
         // 認証できなければログイン画面へ戻る。
         if (!check_result) {
-            request.setAttribute("_token", request.getSession().getId());
+            request.setAttribute("_token", request.getSession().getId());    // CSRF対策
             request.setAttribute("hasError", true);
             request.setAttribute("user_id", user_id);
 
@@ -94,7 +94,7 @@ public class LoginServlet extends HttpServlet {
             rd.forward(request, response);
         // 認証できればログイン状態にしてトップページへリダイレクト
         } else {
-            request.getSession().setAttribute("login_user", u);    // 「セッションスコープにlogin_userという名前でユーザ情報のオブジェクトが保存されている状態」をログインしている状態とする。
+            request.getSession().setAttribute("login_user", u);    // 「セッションスコープにlogin_userという名前でユーザデータのオブジェクトが保存されている状態」をログインしている状態とする。
             request.getSession().setAttribute("flush", "ログインしました。");
             response.sendRedirect(request.getContextPath() + "/index.html");
         }

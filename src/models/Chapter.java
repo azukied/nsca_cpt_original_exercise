@@ -16,6 +16,11 @@ import javax.persistence.Table;
     @NamedQuery(
             name = "getAllChapters",
             query = "SELECT c FROM Chapter AS c ORDER BY c.id ASC"
+            ),
+    // setParameterでセットされた:chapter_idとDBのc.idが等しい章データをDBから取得
+    @NamedQuery(
+            name = "getChapterFromId",
+            query = "SELECT c FROM Chapter AS c WHERE c.id = :chapter_id"
             )
 })
 

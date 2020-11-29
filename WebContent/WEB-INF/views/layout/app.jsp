@@ -24,10 +24,18 @@
                     <a href="<c:url value='/users/show' />">マイページ</a>
                 </li>
                 <li>
-                    <a href="<c:url value='/users/new' />">ユーザー登録</a>
+                    <a href="<c:url value='/users/new' />">新規ユーザ登録</a>
                 </li>
+                <c:if test="${sessionScope.login_user.admin_flag == 1}">
+                    <li>
+                        <a href="<c:url value='/users/index' />">登録ユーザ一覧</a>
+                    </li>
+                    <li>
+                        <a href="<c:url value='/chapters/index' />">問題編集ページ</a>
+                    </li>
+                </c:if>
                 <c:choose>
-                    <c:when test="${u == null}">
+                    <c:when test="${sessionScope.login_user == null}">
                         <li>
                             <a href="<c:url value='/login' />">ログイン</a>
                         </li>

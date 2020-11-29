@@ -17,7 +17,12 @@ import javax.persistence.Table;
             name = "getAllUsers",
             query = "SELECT u FROM User AS u ORDER BY u.id ASC"
             ),
-    // ログインしているユーザと同じユーザデータを取得
+    // ユーザの登録件数を取得
+    @NamedQuery(
+            name = "getUsersCount",
+            query = "SELECT COUNT(u) FROM User AS u"
+            ),
+    // ログインしているユーザと同じユーザデータをDBから取得
     @NamedQuery(
             name = "getLoginUser",
             query = "SELECT u FROM User AS u WHERE u = :login_user"

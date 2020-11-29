@@ -45,7 +45,7 @@ public class LoginFilter implements Filter {
         if (!servlet_path.matches("/css.*") && !servlet_path.matches("/index.html")) {    // CSSフォルダ内とトップページは認証処理から除外する。
             HttpSession session = ((HttpServletRequest)request).getSession();
 
-            // セッションスコープに保存されたログインユーザ情報を取得
+            // セッションスコープに保存されたログインユーザデータを取得
             User u =(User)session.getAttribute("login_user");
 
             // ログイン画面以外について
@@ -56,8 +56,8 @@ public class LoginFilter implements Filter {
                     return;
                 }
 
-                // ログインしている状態でも、練習問題作成に関する操作は管理者のみが行えるようにする。
-                if (servlet_path.matches("/exercises.*") && u.getAdmin_flag() == 0) {
+                // ログインしている状態でも、ユーザ情報一覧画面へのアクセスと練習問題作成に関する操作は管理者のみが行えるようにする。
+                if ((servlet_path.matches("/users/index") || servlet_path.matches("/chapters.*") || servlet_path.matches("/exercises.*")) && u.getAdmin_flag() == 0) {
                     ((HttpServletRequest)request).getSession().setAttribute("flush", "アクセスしようとしたページは、管理者のみアクセス可能です。");
                     ((HttpServletResponse)response).sendRedirect(context_path + "/index.html");
                     return;

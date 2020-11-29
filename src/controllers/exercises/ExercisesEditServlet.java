@@ -1,4 +1,4 @@
-package controllers.users;
+package controllers.exercises;
 
 import java.io.IOException;
 
@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.User;
+import models.Exercise;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class UsersEditServlet
+ * Servlet implementation class ExercisesEditServlet
  */
-@WebServlet("/users/edit")
-public class UsersEditServlet extends HttpServlet {
+@WebServlet("/exercises/edit")
+public class ExercisesEditServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UsersEditServlet() {
+    public ExercisesEditServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,19 +34,17 @@ public class UsersEditServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        // 該当のIDのユーザデータ1件のみをDBから取得
-        User u = em.find(User.class, Integer.parseInt(request.getParameter("id")));
+        // 該当のIDの練習問題データ1件のみをDBから取得
+        Exercise e = em.find(Exercise.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();
 
-        // ユーザデータとセッションIDをリクエストスコープに登録
-        request.setAttribute("user", u);
+        // 練習問題データとセッションIDをリクエストスコープに登録
+        request.setAttribute("exercise", e);
         request.setAttribute("_token", request.getSession().getId());    // CSRF対策
+        request.getSession().setAttribute("exercise_id", e.getId());
 
-        // ユーザのID番号（PK）をセッションスコープに登録
-        request.getSession().setAttribute("useridpk", u.getId());
-
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/users/edit.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/exercises/edit.jsp");
         rd.forward(request, response);
     }
 

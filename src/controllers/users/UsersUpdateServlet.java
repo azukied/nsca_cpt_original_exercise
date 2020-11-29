@@ -84,7 +84,7 @@ public class UsersUpdateServlet extends HttpServlet {
                 em.close();
 
                 // フォームに初期値を設定した状態でエラーメッセージを送る。
-                request.setAttribute("_token", request.getSession().getId());
+                request.setAttribute("_token", request.getSession().getId());    // CSRF対策
                 request.setAttribute("user", u);
                 request.setAttribute("errors", errors);
 
