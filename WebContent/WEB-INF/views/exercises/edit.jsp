@@ -12,5 +12,10 @@
 
             <button type="submit">編集</button>
         </form>
+
+        <form method="POST" action="<c:url value='/exercises/destroy' />">
+            <input type="hidden" name="_token" value="${_token}" />
+            <button type="submit">削除</button>
+        </form>
     </c:param>
 </c:import>

@@ -81,6 +81,7 @@ public class ExercisesUpdateServlet extends HttpServlet {
                 request.getSession().setAttribute("flush", "変更が完了しました。");
 
                 Integer exercise_id = (Integer)request.getSession().getAttribute("exercise_id");
+
                 // セッションスコープ上の不要になったデータを削除
                 request.getSession().removeAttribute("exercise_id");
 

@@ -1,4 +1,4 @@
-package controllers.users;
+package controllers.exercises;
 
 import java.io.IOException;
 
@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.User;
+import models.Exercise;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class UsersDestroyServlet
+ * Servlet implementation class ExercisesDestroyServlet
  */
-@WebServlet("/users/destroy")
-public class UsersDestroyServlet extends HttpServlet {
+@WebServlet("/exercises/destroy")
+public class ExercisesDestroyServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UsersDestroyServlet() {
+    public ExercisesDestroyServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,20 +35,21 @@ public class UsersDestroyServlet extends HttpServlet {
         if (_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
-            // セッションスコープからユーザのID番号（PK）を取得して、該当のIDのユーザデータ1件のみをDBから取得
-            User u = em.find(User.class, (Integer)(request.getSession().getAttribute("useridpk")));
+            Exercise e = em.find(Exercise.class, (Integer)(request.getSession().getAttribute("exercise_id")));
+
+            Integer chapter_id = e.getChapter().getId();
 
             em.getTransaction().begin();
-            em.remove(u);    // データ削除
+            em.remove(e);    // データ削除
             em.getTransaction().commit();
             em.close();
 
             request.getSession().setAttribute("flush", "削除が完了しました。");
 
             // セッションスコープ上の不要になったデータを削除
-            request.getSession().removeAttribute("useridpk");
+            request.getSession().removeAttribute("exercise_id");
 
-            response.sendRedirect(request.getContextPath() + "/index.html");
+            response.sendRedirect(request.getContextPath() + "/exercises/index?chapter_id=" + chapter_id);
         }
     }
 

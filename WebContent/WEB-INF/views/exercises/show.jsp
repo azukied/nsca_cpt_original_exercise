@@ -18,5 +18,6 @@
 
         <p><a href="<c:url value='/exercises/edit?id=${exercise.id}' />">編集</a></p>
 
+        <p><a href="<c:url value='/exercises/index?chapter_id=${exercise.chapter.id}' />">戻る</a></p>
     </c:param>
 </c:import>

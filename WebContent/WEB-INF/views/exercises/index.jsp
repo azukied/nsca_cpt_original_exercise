@@ -9,6 +9,8 @@
 
         <h1>練習問題一覧</h1>
 
+        <h2>第&nbsp;<c:out value="${chapter.id}" />&nbsp;章&emsp;<c:out value="${chapter.title}" /></h2>
+
         <ul>
             <c:forEach var="exercise" items="${exercises}">
                 <c:if test="${exercise.chapter.id == chapter_id}">
@@ -21,7 +23,7 @@
 
         <!-- ページネーション -->
         <div>
-            <p>登録問題数：全 ${users_count} 件</p>
+            <p>登録問題数：全 ${exercises_count} 件</p>
             <c:forEach var="i" begin="1" end="${((exercises_count - 1) / 50) + 1}" step="1">
                 <c:choose>
                     <c:when test="${i == page}">
@@ -35,8 +37,8 @@
             </c:forEach>
         </div>
 
-        <p>
-            <a href="<c:url value='/exercises/new' />">新規問題登録</a>
-        </p>
+        <p><a href="<c:url value='/exercises/new' />">新規問題登録</a></p>
+
+        <p><a href="<c:url value='/chapters/index' />">戻る</a></p>
     </c:param>
 </c:import>

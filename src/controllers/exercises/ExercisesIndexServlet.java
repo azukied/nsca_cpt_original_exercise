@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.Chapter;
 import models.Exercise;
 import utils.DBUtil;
 
@@ -51,10 +52,15 @@ public class ExercisesIndexServlet extends HttpServlet {
                                       .setFirstResult(50 * (page - 1))    // 何件目からデータを取得するか。（配列と同じ0番目から数える。）
                                       .setMaxResults(50)    // データの最大取得件数
                                       .getResultList();
+
         // 該当の章の練習問題件数を取得
         long exercises_count = (long)em.createNamedQuery("getExercisesCountFromEachChapters", Long.class)
                                          .setParameter("chapter_id", chapter_id)
                                          .getSingleResult();
+
+        Chapter chapter = em.createNamedQuery("getChapterFromId", Chapter.class)
+                .setParameter("chapter_id", chapter_id)
+                .getSingleResult();
 
         em.close();
 
@@ -62,6 +68,7 @@ public class ExercisesIndexServlet extends HttpServlet {
         request.setAttribute("exercises", exercises);
         request.setAttribute("exercises_count", exercises_count);
         request.setAttribute("page", page);
+        request.setAttribute("chapter", chapter);
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/exercises/index.jsp");
         rd.forward(request, response);

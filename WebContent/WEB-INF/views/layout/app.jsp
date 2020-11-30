@@ -54,6 +54,10 @@
         <main>
             ${param.content}
         </main>
+
+        <script type="text/javascript">
+
+        </script>
     </body>
 
     <footer>
