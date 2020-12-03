@@ -40,7 +40,7 @@ public class ExercisesShowServlet extends HttpServlet {
 
         EntityManager em = DBUtil.createEntityManager();
 
-        Exercise e = em.find(Exercise.class, Integer.parseInt(request.getParameter("id")));
+        Exercise e = em.find(Exercise.class, Integer.parseInt(request.getParameter("exercise_id")));
 
         em.close();
 

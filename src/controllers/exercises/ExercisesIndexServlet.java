@@ -46,21 +46,22 @@ public class ExercisesIndexServlet extends HttpServlet {
             page = Integer.parseInt(request.getParameter("page"));
         } catch (NumberFormatException e) { }
 
-        // 最大件数と開始位置を指定して該当の章の練習問題を取得
-        List<Exercise> exercises = em.createNamedQuery("getExercisesFromEachChapters", Exercise.class)
+        // 最大件数と開始位置を指定して本章の練習問題を取得
+        List<Exercise> exercises = em.createNamedQuery("getExercisesFromEachChapterId", Exercise.class)
                                       .setParameter("chapter_id", chapter_id)
-                                      .setFirstResult(50 * (page - 1))    // 何件目からデータを取得するか。（配列と同じ0番目から数える。）
-                                      .setMaxResults(50)    // データの最大取得件数
+                                      .setFirstResult(20 * (page - 1))    // 何件目からデータを取得するか。（配列と同じ0番目から数える。）
+                                      .setMaxResults(20)    // データの最大取得件数
                                       .getResultList();
 
-        // 該当の章の練習問題件数を取得
-        long exercises_count = (long)em.createNamedQuery("getExercisesCountFromEachChapters", Long.class)
+        // 本章の練習問題件数を取得
+        long exercises_count = (long)em.createNamedQuery("getExercisesCountFromEachChapterId", Long.class)
                                          .setParameter("chapter_id", chapter_id)
                                          .getSingleResult();
 
+        // 本章の章データを取得
         Chapter chapter = em.createNamedQuery("getChapterFromId", Chapter.class)
-                .setParameter("chapter_id", chapter_id)
-                .getSingleResult();
+                              .setParameter("chapter_id", chapter_id)
+                              .getSingleResult();
 
         em.close();
 

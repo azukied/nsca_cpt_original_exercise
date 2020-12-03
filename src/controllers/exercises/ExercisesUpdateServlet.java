@@ -85,7 +85,7 @@ public class ExercisesUpdateServlet extends HttpServlet {
                 // セッションスコープ上の不要になったデータを削除
                 request.getSession().removeAttribute("exercise_id");
 
-                response.sendRedirect(request.getContextPath() + "/exercises/show?id=" + exercise_id);
+                response.sendRedirect(request.getContextPath() + "/exercises/show?exercise_id=" + exercise_id);
             }
         }
     }

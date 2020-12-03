@@ -30,9 +30,6 @@
                     <li>
                         <a href="<c:url value='/users/index' />">登録ユーザ一覧</a>
                     </li>
-                    <li>
-                        <a href="<c:url value='/chapters/index' />">問題編集ページ</a>
-                    </li>
                 </c:if>
                 <c:choose>
                     <c:when test="${sessionScope.login_user == null}">
@@ -54,10 +51,6 @@
         <main>
             ${param.content}
         </main>
-
-        <script type="text/javascript">
-
-        </script>
     </body>
 
     <footer>

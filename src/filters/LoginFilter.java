@@ -57,7 +57,7 @@ public class LoginFilter implements Filter {
                 }
 
                 // ログインしている状態でも、ユーザ情報一覧画面へのアクセスと練習問題作成に関する操作は管理者のみが行えるようにする。
-                if ((servlet_path.matches("/users/index") || servlet_path.matches("/chapters.*") || servlet_path.matches("/exercises.*")) && u.getAdmin_flag() == 0) {
+                if (u.getAdmin_flag() == 0 && (servlet_path.matches("/users/index") || servlet_path.matches("/exercises/new") || servlet_path.matches("/exercises/create") || servlet_path.matches("/exercises/edit") || servlet_path.matches("/exercises/update") || servlet_path.matches("/exercises/destroy"))) {
                     ((HttpServletRequest)request).getSession().setAttribute("flush", "アクセスしようとしたページは、管理者のみアクセス可能です。");
                     ((HttpServletResponse)response).sendRedirect(context_path + "/index.html");
                     return;

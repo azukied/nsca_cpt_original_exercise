@@ -11,11 +11,13 @@
 
         <h2>第&nbsp;<c:out value="${chapter.id}" />&nbsp;章&emsp;<c:out value="${chapter.title}" /></h2>
 
+        <p><a href="<c:url value='/practice_exams/question?chapter_id=${chapter.id}' />">テスト開始</a></p>
+
         <ul>
             <c:forEach var="exercise" items="${exercises}">
                 <c:if test="${exercise.chapter.id == chapter_id}">
                     <li>
-                        <a href="<c:url value='/exercises/show?id=${exercise.id}' />">第&nbsp;<c:out value="${exercise.id}" />&nbsp;問&emsp;<c:out value="${exercise.question}" /></a>
+                        <a href="<c:url value='/exercises/show?exercise_id=${exercise.id}' />">第&nbsp;<c:out value="${exercise.id}" />&nbsp;問&emsp;<c:out value="${exercise.question}" /></a>
                     </li>
                 </c:if>
             </c:forEach>
@@ -24,14 +26,14 @@
         <!-- ページネーション -->
         <div>
             <p>登録問題数：全 ${exercises_count} 件</p>
-            <c:forEach var="i" begin="1" end="${((exercises_count - 1) / 50) + 1}" step="1">
+            <c:forEach var="i" begin="1" end="${((exercises_count - 1) / 20) + 1}" step="1">
                 <c:choose>
                     <c:when test="${i == page}">
                         <c:out value="${i}" />&nbsp;
                     </c:when>
 
                     <c:otherwise>
-                        <a href="<c:url value='/exercises/index?page=${i}' />"><c:out value="${i}" /></a>&nbsp;
+                        <a href="<c:url value='/exercises/index?page=${i}&chapter_id=${chapter.id}' />"><c:out value="${i}" /></a>&nbsp;
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
@@ -39,6 +41,6 @@
 
         <p><a href="<c:url value='/exercises/new' />">新規問題登録</a></p>
 
-        <p><a href="<c:url value='/chapters/index' />">戻る</a></p>
+        <p><a href="<c:url value='/index.html' />">戻る</a></p>
     </c:param>
 </c:import>

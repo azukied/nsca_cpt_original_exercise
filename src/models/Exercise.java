@@ -15,12 +15,12 @@ import javax.persistence.Table;
 @NamedQueries({
     // 該当の章の練習問題を取得
     @NamedQuery(
-            name = "getExercisesFromEachChapters",
+            name = "getExercisesFromEachChapterId",
             query = "SELECT e FROM Exercise AS e WHERE e.chapter.id = :chapter_id ORDER BY e.id ASC"
             ),
     // 該当の章の練習問題の登録件数を取得
     @NamedQuery(
-            name = "getExercisesCountFromEachChapters",
+            name = "getExercisesCountFromEachChapterId",
             query = "SELECT COUNT(e) FROM Exercise AS e WHERE e.chapter.id = :chapter_id"
             )
 })

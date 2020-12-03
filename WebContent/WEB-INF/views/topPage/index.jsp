@@ -15,7 +15,7 @@
             <c:forEach var="chapter" items="${chapters}">
                 <c:if test="${part.id == chapter.part.id}">
                     <ul>
-                        <li><a href="">第&nbsp;<c:out value="${chapter.id}" />&nbsp;章&emsp;<c:out value="${chapter.title}" /></a></li>
+                        <li><a href="<c:url value='/exercises/index?chapter_id=${chapter.id}' />">第&nbsp;<c:out value="${chapter.id}" />&nbsp;章&emsp;<c:out value="${chapter.title}" /></a></li>
                     </ul>
                 </c:if>
             </c:forEach>
