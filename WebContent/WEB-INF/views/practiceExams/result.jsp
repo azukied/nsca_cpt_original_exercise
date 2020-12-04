@@ -7,7 +7,11 @@
 
         <h2>模擬試験</h2>
 
-        <p>テスト終了です。お疲れさまでした。</p>
+        <p>テスト終了です。</p>
+
+        <p>正解数：<c:out value="${correctlly_answered_questions_size}" />／<c:out value="${list_size}" /></p>
+
+        <p>お疲れさまでした。</p>
 
         <p><a href="<c:url value='/index.html' />">トップページへ戻る</a></p>
     </c:param>

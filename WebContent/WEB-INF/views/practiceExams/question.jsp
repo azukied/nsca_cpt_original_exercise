@@ -30,14 +30,5 @@
 
             <button type="submit">解答</button>
         </form>
-
-        <ul>
-            <c:if test="${list_index > 0}">
-                <li><a href="<c:url value='/practice_exams/question?list_index=${list_index - 1}' />">＜前へ</a></li>
-            </c:if>
-            <c:if test="${list_index < (list_size - 1)}">
-                <li><a href="<c:url value='/practice_exams/question?list_index=${list_index + 1}' />">次へ＞</a></li>
-            </c:if>
-        </ul>
     </c:param>
 </c:import>
