@@ -4,6 +4,7 @@ CREATE TABLE nsca_cpt_original_exercise.parts (
     title VARCHAR(255)
 );
 
+
 -- 章マスタ作成
 CREATE TABLE nsca_cpt_original_exercise.chapters (
     id INT NOT NULL PRIMARY KEY,
@@ -20,6 +21,7 @@ INSERT INTO nsca_cpt_original_exercise.parts (id, title) VALUES
     (5, "特定のクライアント向けに"),
     (6, "安全性と法的問題")
 ;
+
 
 -- 部データ保存
 INSERT INTO nsca_cpt_original_exercise.chapters (id, part_id, title) VALUES

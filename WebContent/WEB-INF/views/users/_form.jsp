@@ -19,6 +19,7 @@
 <p>
     <label for="plain_conf_pass">確認用パスワード</label>
     <input type="password" name="plain_conf_pass" required id="plain_conf_pass" />
+    （パスワードと同じものを入力してください。）
 </p>
 
 <input type="hidden" name="_token" value="${_token}" />

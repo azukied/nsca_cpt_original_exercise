@@ -39,7 +39,9 @@
             </c:forEach>
         </div>
 
-        <p><a href="<c:url value='/exercises/new' />">新規問題登録</a></p>
+        <c:if test="${sessionScope.login_user.admin_flag == 1}">
+            <p><a href="<c:url value='/exercises/new' />">新規問題登録</a></p>
+        </c:if>
 
         <p><a href="<c:url value='/index.html' />">戻る</a></p>
     </c:param>

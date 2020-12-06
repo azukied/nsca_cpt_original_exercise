@@ -16,7 +16,9 @@
         <p>正解：<c:out value="${exercise.correct_answer}" /></p>
         <p>解説<br /><c:out value="${exercise.explanation}" /></p>
 
-        <p><a href="<c:url value='/exercises/edit?exercise_id=${exercise.id}' />">編集</a></p>
+        <c:if test="${sessionScope.login_user.admin_flag == 1}">
+            <p><a href="<c:url value='/exercises/edit?exercise_id=${exercise.id}' />">編集</a></p>
+        </c:if>
 
         <p><a href="<c:url value='/exercises/index?chapter_id=${exercise.chapter.id}' />">戻る</a></p>
     </c:param>

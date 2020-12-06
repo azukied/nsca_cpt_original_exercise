@@ -56,31 +56,37 @@ public class LoginServlet extends HttpServlet {
 
         String user_id = request.getParameter("user_id");
         String plain_pass = request.getParameter("plain_pass");
+        String plain_conf_pass = request.getParameter("plain_conf_pass");
 
         User u = null;
 
         // ユーザIDとパスワードが入力されていれば、以下を実行する。
-        if (user_id != null && !user_id.equals("") && plain_pass != null && !plain_pass.equals("")) {
+        if (user_id != null && !user_id.equals("") && plain_pass != null && !plain_pass.equals("")  && plain_conf_pass != null && !plain_conf_pass.equals("")) {
             EntityManager em = DBUtil.createEntityManager();
 
-            // ログイン時にフォームから受け取ったパスワードをハッシュ化
+            // ログイン時にフォームから受け取ったパスワードと確認用パスワードをハッシュ化
             String password = EncryptUtil.getPasswordEncrypt(
                                    plain_pass,
                                    (String)this.getServletContext().getAttribute("pepper")
                                );
+            String conf_pass = EncryptUtil.getPasswordEncrypt(
+                                    request.getParameter("plain_conf_pass"),
+                                    (String)this.getServletContext().getAttribute("pepper")
+                                );
 
             // ユーザIDとパスワードが正しいかチェック
             try {
                 u = em.createNamedQuery("checkLoginUserIdAndPassword", User.class)
-                      .setParameter("user_id", user_id)
-                      .setParameter("password", password)
-                      .getSingleResult();
+                        .setParameter("user_id", user_id)
+                        .setParameter("password", password)
+                        .getSingleResult();
             } catch (NoResultException ex) {}
 
             em.close();
 
-            if (u != null) {
-                check_result = true;    // DBに保存されているユーザデータとの照合が取れれば、trueを代入
+            // DBに保存されているユーザデータとの照合が取れ、かつパスワードと確認用パスワードが一致すれば、trueを代入
+            if (u != null && password.equals(conf_pass)) {
+                check_result = true;
             }
         }
 

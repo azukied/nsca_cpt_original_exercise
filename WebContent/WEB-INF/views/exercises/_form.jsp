@@ -2,13 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <p>
-    <label for="id">問題番号</label>
-    <input type="number" name="id" value="${exercise.id}" min="1" id="id" />
+    <label for="chapter_id">章番号</label>
+    <input type="number" name="chapter_id" value="${exercise.chapter.id}" min="1" max="25" id="chapter_id" />
 </p>
 
 <p>
-    <label for="chapter_id">章番号</label>
-    <input type="number" name="chapter_id" value="${exercise.chapter.id}" min="1" max="25" id="chapter_id" />
+    <label for="id">問題番号</label>
+    <input type="number" name="id" value="${exercise.id}" min="1" id="id" />
 </p>
 
 <p>

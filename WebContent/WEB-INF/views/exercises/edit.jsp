@@ -10,7 +10,7 @@
         <form method="POST" action="<c:url value='/exercises/update' />">
             <c:import url="_form.jsp" />
 
-            <button type="submit">編集</button>
+            <button type="submit">変更</button>
         </form>
 
         <form method="POST" action="<c:url value='/exercises/destroy' />">
