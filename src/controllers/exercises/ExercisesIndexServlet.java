@@ -71,6 +71,12 @@ public class ExercisesIndexServlet extends HttpServlet {
         request.setAttribute("page", page);
         request.setAttribute("chapter", chapter);
 
+        // セッションスコープにフラッシュメッセージが登録されていれば、それをリクエストスコープに登録し直す。
+        if(request.getSession().getAttribute("flush") != null) {
+            request.setAttribute("flush", request.getSession().getAttribute("flush"));
+            request.getSession().removeAttribute("flush");
+        }
+
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/exercises/index.jsp");
         rd.forward(request, response);
     }
