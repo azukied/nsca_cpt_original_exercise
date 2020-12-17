@@ -40,7 +40,7 @@ public class PracticeExamsResultServlet extends HttpServlet {
         request.getSession().removeAttribute("chapter");
         request.getSession().removeAttribute("list_size");
         request.getSession().removeAttribute("exercise");
-        request.getSession().removeAttribute("correctlly_answered_questions_size");
+        request.getSession().removeAttribute("correctlly_answered_questions");
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/practiceExams/result.jsp");
         rd.forward(request, response);

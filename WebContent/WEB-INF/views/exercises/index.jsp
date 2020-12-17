@@ -11,7 +11,7 @@
 
         <h2>第&nbsp;<c:out value="${chapter.id}" />&nbsp;章&emsp;<c:out value="${chapter.title}" /></h2>
 
-        <p><a href="<c:url value='/practice_exams/question?chapter_id=${chapter.id}' />">テスト開始</a></p>
+        <p><a href="<c:url value='/practice_exams/question?chapter_id=${chapter.id}' />">テスト開始</a>（ブラウザの「戻る」ボタンは使わないでください。）</p>
 
         <ul>
             <c:forEach var="exercise" items="${exercises}">

@@ -7,14 +7,14 @@
             <p><c:out value="${flush}" /></p>
         </c:if>
 
-        <p>第&nbsp;<c:out value="${exercise.id}" />&nbsp;問</p>
-        <p>問題<br /><c:out value="${exercise.question}" /></p>
-        <p>選択肢A<br /><c:out value="${exercise.choice_a}" /></p>
-        <p>選択肢B<br /><c:out value="${exercise.choice_b}" /></p>
-        <p>選択肢C<br /><c:out value="${exercise.choice_c}" /></p>
-        <p>選択肢D<br /><c:out value="${exercise.choice_d}" /></p>
-        <p>正解：<c:out value="${exercise.correct_answer}" /></p>
-        <p>解説<br /><c:out value="${exercise.explanation}" /></p>
+        <p><span class="bold">第&nbsp;<c:out value="${exercise.id}" />&nbsp;問</span></p>
+        <p><span class="bold">問題</span><br /><c:out value="${exercise.question}" /></p>
+        <p><span class="bold">A</span><br /><c:out value="${exercise.choice_a}" /></p>
+        <p><span class="bold">B</span><br /><c:out value="${exercise.choice_b}" /></p>
+        <p><span class="bold">C</span><br /><c:out value="${exercise.choice_c}" /></p>
+        <p><span class="bold">D</span><br /><c:out value="${exercise.choice_d}" /></p>
+        <p><span class="bold">正解：<c:out value="${exercise.correct_answer}" /></span></p>
+        <p><span class="bold">解説</span><br /><c:out value="${exercise.explanation}" /></p>
 
         <c:if test="${sessionScope.login_user.admin_flag == 1}">
             <p><a href="<c:url value='/exercises/edit?exercise_id=${exercise.id}' />">編集</a></p>

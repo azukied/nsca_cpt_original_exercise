@@ -33,9 +33,17 @@ public class PracticeExamsAnswerServlet extends HttpServlet {
     @SuppressWarnings("unchecked")
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("list_index", request.getParameter("list_index"));
+        String correct_answer = new String();
 
-        String correct_answer = request.getParameter("correct_answer");
-        request.setAttribute("correct_answer", correct_answer);
+        if (request.getParameter("correct_answer") != null) {
+            correct_answer = request.getParameter("correct_answer");
+            request.setAttribute("correct_answer", correct_answer);
+        } else {
+            request.setAttribute("error", 1);
+
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/practiceExams/question.jsp");
+            rd.forward(request, response);
+        }
 
         // テスト結果画面に正解数を表示するためのコード
         HashSet<Integer> correctlly_answered_questions;

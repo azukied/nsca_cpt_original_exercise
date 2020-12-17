@@ -9,21 +9,21 @@
 
         <c:choose>
             <c:when test="${correct_answer == sessionScope.exercise.correct_answer}">
-                <p>正解○</p>
+                <p class="bold">正解○</p>
             </c:when>
             <c:otherwise>
-                <p>不正解×</p>
+                <p class="bold">不正解×</p>
             </c:otherwise>
         </c:choose>
 
-        <p>第&nbsp;<c:out value="${sessionScope.exercise.id}" />&nbsp;問</p>
-        <p>問題<br /><c:out value="${sessionScope.exercise.question}" /></p>
-        <p>選択肢A<br /><c:out value="${sessionScope.exercise.choice_a}" /></p>
-        <p>選択肢B<br /><c:out value="${sessionScope.exercise.choice_b}" /></p>
-        <p>選択肢C<br /><c:out value="${sessionScope.exercise.choice_c}" /></p>
-        <p>選択肢D<br /><c:out value="${sessionScope.exercise.choice_d}" /></p>
-        <p>正解：<c:out value="${sessionScope.exercise.correct_answer}" /></p>
-        <p>解説<br /><c:out value="${sessionScope.exercise.explanation}" /></p>
+        <p class="bold">第&nbsp;<c:out value="${sessionScope.exercise.id}" />&nbsp;問</p>
+        <p><span class="bold">問題</span><br /><c:out value="${sessionScope.exercise.question}" /></p>
+        <p><span class="bold">A</span><br /><c:out value="${sessionScope.exercise.choice_a}" /></p>
+        <p><span class="bold">B</span><br /><c:out value="${sessionScope.exercise.choice_b}" /></p>
+        <p><span class="bold">C</span><br /><c:out value="${sessionScope.exercise.choice_c}" /></p>
+        <p><span class="bold">D</span><br /><c:out value="${sessionScope.exercise.choice_d}" /></p>
+        <p class="bold">正解：<c:out value="${sessionScope.exercise.correct_answer}" /></p>
+        <p><span class="bold">解説</span><br /><c:out value="${sessionScope.exercise.explanation}" /></p>
 
         <ul>
             <c:if test="${list_index > 0}">

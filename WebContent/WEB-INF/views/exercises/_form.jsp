@@ -38,13 +38,13 @@
 
 <p>
     正解<br />
-    <input type="radio" name="correct_answer" value="A" id="a" <c:if test="${exercise.correct_answer == 'a'}">checked</c:if> />
+    <input type="radio" name="correct_answer" value="A" id="a" <c:if test="${exercise.correct_answer == 'A'}">checked</c:if> />
     <label for="a">A</label>
-    <input type="radio" name="correct_answer" value="B" id="b" <c:if test="${exercise.correct_answer == 'b'}">checked</c:if> />
+    <input type="radio" name="correct_answer" value="B" id="b" <c:if test="${exercise.correct_answer == 'B'}">checked</c:if> />
     <label for="b">B</label>
-    <input type="radio" name="correct_answer" value="C" id="c" <c:if test="${exercise.correct_answer == 'c'}">checked</c:if> />
+    <input type="radio" name="correct_answer" value="C" id="c" <c:if test="${exercise.correct_answer == 'C'}">checked</c:if> />
     <label for="c">C</label>
-    <input type="radio" name="correct_answer" value="D" id="d" <c:if test="${exercise.correct_answer == 'd'}">checked</c:if> />
+    <input type="radio" name="correct_answer" value="D" id="d" <c:if test="${exercise.correct_answer == 'D'}">checked</c:if> />
     <label for="d">D</label>
 </p>
 
