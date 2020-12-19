@@ -12,5 +12,7 @@
 
             <button type="submit">登録</button>
         </form>
+
+        <p><a href="<c:url value='/exercises/index?chapter_id=${chapter_id}' />">戻る</a></p>
     </c:param>
 </c:import>

@@ -5,7 +5,7 @@
     <c:param name="content">
         <!-- リクエストスコープにhasErrorという変数がtrueでセットされていれば、エラーメッセージを表示 -->
         <c:if test="${hasError}">
-            <p>ユーザID、パスワードまたは確認用パスワードが間違っています。</p>
+            <p class="error">ユーザID、パスワードまたは確認用パスワードが間違っています。</p>
         </c:if>
 
         <c:if test="${flush != null}">

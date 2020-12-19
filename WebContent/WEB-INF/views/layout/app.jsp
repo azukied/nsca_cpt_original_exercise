@@ -13,7 +13,7 @@
     <body>
         <header>
             <div class="header">
-                <h1 class="title">NSCA-CPT 試験対策</h1>
+                <h1 class="title">NSCA-CPT オリジナル練習問題</h1>
 
                 <nav>
                     <ul>

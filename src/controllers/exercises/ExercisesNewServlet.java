@@ -33,7 +33,9 @@ public class ExercisesNewServlet extends HttpServlet {
         request.setAttribute("_token", request.getSession().getId());    // CSRF対策
         // おまじないとしてのインスタンスを生成
         request.setAttribute("exercise", new Exercise());
-
+        
+        request.setAttribute("chapter_id", Integer.parseInt(request.getParameter("chapter_id")));
+        
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/exercises/new.jsp");
         rd.forward(request, response);
     }

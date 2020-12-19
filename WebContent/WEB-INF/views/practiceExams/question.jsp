@@ -8,11 +8,11 @@
         <h2>模擬試験</h2>
 
         <c:if test="${error != null}">
-            <p>解答を選んでください。</p>
+            <p class="error">解答を選んでください。</p>
         </c:if>
 
         <p>第&nbsp;<c:out value="${sessionScope.exercise.id}" />&nbsp;問</p>
-        <p>問題<br /><c:out value="${sessionScope.exercise.question}" /></p>
+        <p class="wspw">問題<br /><c:out value="${sessionScope.exercise.question}" /></p>
 
         <form method="POST" action="<c:url value='/practice_exams/answer?list_index=${list_index}' />">
             <p>

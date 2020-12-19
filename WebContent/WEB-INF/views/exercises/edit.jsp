@@ -17,5 +17,7 @@
             <input type="hidden" name="_token" value="${_token}" />
             <button type="submit">削除</button>
         </form>
+
+        <p><a href="<c:url value='/exercises/show?exercise_id=${exercise.id}' />">戻る</a></p>
     </c:param>
 </c:import>

@@ -3,12 +3,12 @@
 
 <p>
     <label for="chapter_id">章番号</label>
-    <input type="number" name="chapter_id" value="${exercise.chapter.id}" min="1" max="25" id="chapter_id" />
+    <input type="number" name="chapter_id" value="${exercise.chapter.id}" min="1" max="25" required id="chapter_id" />
 </p>
 
 <p>
     <label for="id">問題番号</label>
-    <input type="number" name="id" value="${exercise.id}" min="1" id="id" />
+    <input type="number" name="id" value="${exercise.id}" min="1" required id="id" />
 </p>
 
 <p>

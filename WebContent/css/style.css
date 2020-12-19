@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/* body */
 body * {
     padding: 1vmin;
 }
@@ -20,6 +21,30 @@ span {
     padding: 0;
 }
 
+.flush {
+    background-color: hsl(55, 100%, 80%);
+    color: hsl(55, 100%, 20%);
+    padding: 1vh 0;
+}
+
+.error {
+    background-color: hsl(10, 100%, 90%);
+    color: hsl(10, 100%, 30%);
+    padding: 1vh 0;
+}
+
+.wspw {
+    white-space: pre-wrap;
+    line-height: 1.2rem;
+}
+
+.wspl {
+    white-space: pre-line;
+    line-height: 1.2rem;
+}
+
+
+/* header */
 header .header {
     display: flex;
     justify-content: space-between;
@@ -55,6 +80,8 @@ nav a {
     padding: 0;
 }
 
+
+/* main */
 main h1 {
     font-size: 2rem;
 }
@@ -72,6 +99,12 @@ main > ul {
     list-style: none;
 }
 
+.part {
+    margin-top: 2vh;
+}
+
+
+/* footer */
 footer {
     padding: 1vmin;
     margin-top: auto;

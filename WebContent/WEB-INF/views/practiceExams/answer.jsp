@@ -17,13 +17,13 @@
         </c:choose>
 
         <p class="bold">第&nbsp;<c:out value="${sessionScope.exercise.id}" />&nbsp;問</p>
-        <p><span class="bold">問題</span><br /><c:out value="${sessionScope.exercise.question}" /></p>
+        <p class="wspw"><span class="bold">問題</span><br /><c:out value="${sessionScope.exercise.question}" /></p>
         <p><span class="bold">A</span><br /><c:out value="${sessionScope.exercise.choice_a}" /></p>
         <p><span class="bold">B</span><br /><c:out value="${sessionScope.exercise.choice_b}" /></p>
         <p><span class="bold">C</span><br /><c:out value="${sessionScope.exercise.choice_c}" /></p>
         <p><span class="bold">D</span><br /><c:out value="${sessionScope.exercise.choice_d}" /></p>
         <p class="bold">正解：<c:out value="${sessionScope.exercise.correct_answer}" /></p>
-        <p><span class="bold">解説</span><br /><c:out value="${sessionScope.exercise.explanation}" /></p>
+        <p class="wspw"><span class="bold">解説</span><br /><c:out value="${sessionScope.exercise.explanation}" /></p>
 
         <ul>
             <c:if test="${list_index > 0}">

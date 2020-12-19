@@ -4,13 +4,11 @@
 <c:import url="../layout/app.jsp">
     <c:param name="content">
         <c:if test="${flush != null}">
-            <p><c:out value="${flush}" /></p>
+            <p class="flush"><c:out value="${flush}" /></p>
         </c:if>
 
-        <h1>NSCA-CPT オリジナル練習問題</h1>
-
         <c:forEach var="part" items="${parts}">
-            <h2>PART&nbsp;<c:out value="${part.id}" />&emsp;<c:out value="${part.title}" /></h2>
+            <h1 class="part">PART&nbsp;<c:out value="${part.id}" />&emsp;<c:out value="${part.title}" /></h1>
 
             <c:forEach var="chapter" items="${chapters}">
                 <c:if test="${part.id == chapter.part.id}">

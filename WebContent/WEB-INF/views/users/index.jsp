@@ -4,7 +4,7 @@
 <c:import url="../layout/app.jsp">
     <c:param name="content">
         <c:if test="${flush != null}">
-            <p><c:out value="${flush}" /></p>
+            <p class="flush"><c:out value="${flush}" /></p>
         </c:if>
 
         <h1>登録ユーザ一覧</h1>

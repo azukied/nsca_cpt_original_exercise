@@ -5,7 +5,7 @@
     <div>
         <p>入力内容にエラーがあります。</p>
         <c:forEach var="error" items="${errors}">
-            <p>・<c:out value="${error}" /></p>
+            <p class="error">・<c:out value="${error}" /></p>
         </c:forEach>
     </div>
 </c:if>
