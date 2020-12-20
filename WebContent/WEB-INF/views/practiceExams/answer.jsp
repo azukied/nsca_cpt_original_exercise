@@ -9,10 +9,10 @@
 
         <c:choose>
             <c:when test="${correct_answer == sessionScope.exercise.correct_answer}">
-                <p class="bold">正解○</p>
+                <p class="bold blue">正解○</p>
             </c:when>
             <c:otherwise>
-                <p class="bold">不正解×</p>
+                <p class="bold red">不正解×</p>
             </c:otherwise>
         </c:choose>
 
@@ -25,7 +25,7 @@
         <p class="bold">正解：<c:out value="${sessionScope.exercise.correct_answer}" /></p>
         <p class="wspw"><span class="bold">解説</span><br /><c:out value="${sessionScope.exercise.explanation}" /></p>
 
-        <ul>
+        <ul class="flex">
             <c:if test="${list_index > 0}">
                 <li><a href="<c:url value='/practice_exams/question?list_index=${list_index - 1}' />">＜前へ</a></li>
             </c:if>

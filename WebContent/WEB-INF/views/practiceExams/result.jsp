@@ -9,7 +9,7 @@
 
         <p>テスト終了です。</p>
 
-        <p>正解数：<c:out value="${correctlly_answered_questions_size}" />／<c:out value="${list_size}" /></p>
+        <p class="bold">正解数：<c:out value="${correctlly_answered_questions_size}" />／<c:out value="${list_size}" /></p>
 
         <p>お疲れさまでした。</p>
 
