@@ -1,13 +1,23 @@
+/* common */
 @charset "utf-8";
 
+html {
+    font-size: 62.5%;
+}
+
+
+
+/* small(min-width: 320px) */
 /* body */
 body * {
-    padding: 1vmin;
+    margin: 1vmin;
 }
 
 body {
+    font-size: 1.2rem;
     color: #333333;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -57,47 +67,38 @@ span {
 
 
 /* header */
-header .header {
-    display: flex;
-    justify-content: space-between;
-}
-
 header .title {
-    font-size: 2.5rem;
+    font-size: 1.6rem;
 }
 
-nav > ul {
+header ul {
     display: flex;
-    align-items: center;
     list-style-type: none;
-    padding: 0;
+    margin: 0;
+}
+
+header li {
+    margin: 0;
     background-color: cornflowerblue;
     color: white;
-}
-
-nav li {
     cursor: pointer;
-    padding: 2vmin;
+    padding: 1vmin;
 }
 
-nav li:hover {
+header li + li {
+    margin-left: 1px;
+}
+
+header li:hover {
     opacity: 0.8;
 }
 
-nav a {
-    padding: 0;
+header a {
+    margin: 0;
 }
 
 
 /* main */
-main h1 {
-    font-size: 2rem;
-}
-
-main h2 {
-    font-size: 1.5rem;
-}
-
 nav > ul > li > a {
     color: white;
     text-decoration-line: none;
@@ -111,10 +112,90 @@ main > ul {
     margin-top: 2vh;
 }
 
+main h1 {
+    font-size: 1.4rem;
+}
+
+main h2 {
+    font-size: 1.3rem;
+}
+
 
 /* footer */
 footer {
     padding: 1vmin;
     margin-top: auto;
     text-align: center;
+}
+
+
+
+/* medium */
+@media (min-width: 600px) {
+    /* body */
+    body {
+        font-size: 1.6rem;
+    }
+
+
+    /* header */
+    header .title {
+        font-size: 2.2rem;
+    }
+
+
+    /* main */
+    main h1 {
+        font-size: 2.0rem;
+    }
+
+    main h2 {
+        font-size: 1.8rem;
+    }
+
+}
+
+
+
+/* large */
+@media (min-width: 1025px) {
+    /* body */
+    body {
+        font-size: 1.8rem;
+    }
+
+    /* header */
+    header {
+        display: flex;
+        /* position: fixed; */
+    }
+
+    nav {
+        margin-left: auto;
+    }
+
+    header .title {
+        font-size: 2.8rem;
+    }
+
+
+    /* main */
+    main h1 {
+        font-size: 2.4rem;
+    }
+
+    main h2 {
+        font-size: 2.0rem;
+    }
+
+}
+
+
+
+/* extra large */
+@media (min-width: 1280px) {
+    /* body */
+    body {
+        width: 1280px;
+    }
 }
